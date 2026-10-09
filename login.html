@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RideOn - Login</title>
+
+    <link rel="icon" type="image/png" href="images/rideon-logo1.png">
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+
+        /* ================================
+                    NAVBAR
+        ================================= */
+
+        .navbar {
+            background-color: #ffc107 !important;
+        }
+
+
+        .navbar-brand img {
+            width: 140px;
+        }
+
+
+        .nav-link {
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+
+        .nav-link:hover {
+            background-color: #212529;
+            color: white !important;
+        }
+
+
+        /* ================================
+                    LOGIN AREA
+        ================================= */
+
+        .login-section {
+
+            min-height: calc(100vh - 76px);
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 50px 0;
+        }
+
+
+        .login-card {
+
+            border: none;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* ================================
+                    LEFT SIDE
+        ================================= */
+
+        .login-left {
+
+            background: #212529;
+
+            color: white;
+
+            padding: 50px;
+
+            min-height: 560px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .login-left img {
+
+            max-width: 260px;
+
+            background: white;
+
+            padding: 12px;
+
+            border-radius: 15px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .yellow-text {
+            color: #ffc107;
+        }
+
+
+        /* ================================
+                    RIGHT SIDE
+        ================================= */
+
+        .login-right {
+
+            background: white;
+
+            padding: 50px;
+        }
+
+
+        /* ================================
+                    FORM
+        ================================= */
+
+        .form-control {
+
+            border-radius: 12px;
+
+            padding: 13px 15px;
+        }
+
+
+        .input-group .form-control {
+
+            border-radius: 12px 0 0 12px;
+        }
+
+
+        .password-btn {
+
+            border-radius: 0 12px 12px 0;
+        }
+
+
+        .login-btn {
+
+            border-radius: 50px;
+
+            padding: 13px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .login-btn:hover {
+
+            background-color: #212529;
+
+            color: white;
+        }
+
+
+        .social-btn {
+
+            border-radius: 50px;
+
+            font-weight: 600;
+
+            padding: 11px;
+        }
+
+
+        /* ================================
+                    DIVIDER
+        ================================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #999;
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            height: 1px;
+
+            background: #ddd;
+
+            flex: 1;
+        }
+
+
+        /* ================================
+                    FEATURES
+        ================================= */
+
+        .feature-item {
+
+            margin-bottom: 20px;
+        }
+
+
+        .feature-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            background: #ffc107;
+
+            color: #212529;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ================================
+                    MESSAGE
+        ================================= */
+
+        #loginMessage {
+
+            display: none;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+        }
+
+
+        /* ================================
+                    LOADING
+        ================================= */
+
+        .login-btn:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+        }
+
+
+        /* ================================
+                    MOBILE
+        ================================= */
+
+        @media (max-width: 991px) {
+
+            .login-left {
+
+                min-height: auto;
+
+                padding: 35px;
+            }
+
+
+            .login-right {
+
+                padding: 35px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+                            NAVBAR
+    ========================================================= -->
+
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top">
+
+        <div class="container px-3 px-lg-5">
+
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand" href="index.html">
+
+                <img src="images/rideon-logo1.png" alt="RideOn Logo" class="bg-white rounded-3 p-2">
+
+            </a>
+
+
+            <!-- MOBILE BUTTON -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#rideOnNavbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- NAVIGATION -->
+
+            <div class="collapse navbar-collapse justify-content-end" id="rideOnNavbar">
+
+                <ul class="navbar-nav align-items-lg-center gap-lg-2">
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#home">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#vehicles">
+
+                            Vehicles
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#why-us">
+
+                            Why RideOn
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#about">
+
+                            About Us
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item ms-lg-2">
+
+                        <a href="signup.html" class="btn btn-dark rounded-pill fw-bold px-4">
+
+                            Sign Up
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+                            LOGIN SECTION
+    ========================================================= -->
+
+    <section class="login-section">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-xl-10">
+
+                    <div class="card login-card">
+
+                        <div class="row g-0">
+
+
+                            <!-- =================================================
+                                    LEFT SIDE
+                            ================================================= -->
+
+                            <div class="col-lg-6">
+
+                                <div class="login-left">
+
+
+                                    <img src="images/rideon-logo1.png" alt="RideOn Logo">
+
+
+                                    <h1 class="display-5 fw-bold">
+
+                                        Welcome Back to
+
+                                        <span class="yellow-text">
+
+                                            RideOn
+
+                                        </span>
+
+                                    </h1>
+
+
+                                    <p class="text-light fs-5 mt-3">
+
+                                        Rent your favourite bikes,
+                                        scooters and cars with just a
+                                        few simple clicks.
+
+                                    </p>
+
+
+                                    <!-- FEATURE 1 -->
+
+                                    <div class="feature-item d-flex gap-3 mt-4">
+
+                                        <div class="feature-icon">
+
+                                            <i class="bi bi-bicycle fs-5"></i>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <h6 class="fw-bold mb-1">
+
+                                                Multiple Vehicles
+
+                                            </h6>
+
+
+                                            <small class="text-secondary">
+
+                                                Bikes, scooters and cars
+                                                available for your journey.
+
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- FEATURE 2 -->
+
+                                    <div class="feature-item d-flex gap-3">
+
+                                        <div class="feature-icon">
+
+                                            <i class="bi bi-calendar-check fs-5"></i>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <h6 class="fw-bold mb-1">
+
+                                                Easy Booking
+
+                                            </h6>
+
+
+                                            <small class="text-secondary">
+
+                                                Select your vehicle,
+                                                date and location easily.
+
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- FEATURE 3 -->
+
+                                    <div class="feature-item d-flex gap-3">
+
+                                        <div class="feature-icon">
+
+                                            <i class="bi bi-shield-check fs-5"></i>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <h6 class="fw-bold mb-1">
+
+                                                Safe & Reliable
+
+                                            </h6>
+
+
+                                            <small class="text-secondary">
+
+                                                Enjoy a simple and trusted
+                                                rental experience.
+
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- =================================================
+                                    RIGHT SIDE
+                            ================================================= -->
+
+                            <div class="col-lg-6">
+
+                                <div class="login-right">
+
+
+                                    <!-- TITLE -->
+
+                                    <div class="text-center mb-4">
+
+
+                                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
+
+                                            <i class="bi bi-person-circle"></i>
+
+                                            Account Login
+
+                                        </span>
+
+
+                                        <h2 class="fw-bold mt-3">
+
+                                            Login to RideOn
+
+                                        </h2>
+
+
+                                        <p class="text-secondary">
+
+                                            Welcome back!
+                                            Please enter your
+                                            account details.
+
+                                        </p>
+
+                                    </div>
+
+
+
+                                    <!-- =================================================
+                                            MESSAGE
+                                    ================================================= -->
+
+                                    <div id="loginMessage" class="alert" role="alert">
+                                    </div>
+
+
+
+                                    <!-- =================================================
+                                            LOGIN FORM
+                                    ================================================= -->
+
+                                    <form id="loginForm">
+
+
+                                        <!-- EMAIL -->
+
+                                        <div class="mb-3">
+
+                                            <label class="form-label fw-semibold">
+
+                                                Email Address
+
+                                            </label>
+
+
+                                            <div class="input-group">
+
+
+                                                <span class="input-group-text bg-white">
+
+                                                    <i class="bi bi-envelope"></i>
+
+                                                </span>
+
+
+                                                <input type="email" id="loginEmail" class="form-control"
+                                                    placeholder="Enter your email" autocomplete="email" required>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- PASSWORD -->
+
+                                        <div class="mb-3">
+
+
+                                            <div class="d-flex justify-content-between">
+
+                                                <label class="form-label fw-semibold">
+
+                                                    Password
+
+                                                </label>
+
+
+                                                <a href="#" class="text-dark text-decoration-none small"
+                                                    onclick="forgotPassword(event)">
+
+                                                    Forgot Password?
+
+                                                </a>
+
+                                            </div>
+
+
+                                            <div class="input-group">
+
+
+                                                <span class="input-group-text bg-white">
+
+                                                    <i class="bi bi-lock"></i>
+
+                                                </span>
+
+
+                                                <input type="password" id="loginPassword" class="form-control"
+                                                    placeholder="Enter your password" autocomplete="current-password"
+                                                    required>
+
+
+                                                <button type="button" class="btn btn-outline-secondary password-btn"
+                                                    onclick="togglePassword()">
+
+                                                    <i id="passwordIcon" class="bi bi-eye">
+                                                    </i>
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- REMEMBER -->
+
+                                        <div class="form-check mb-4">
+
+                                            <input class="form-check-input" type="checkbox" id="rememberMe">
+
+
+                                            <label class="form-check-label text-secondary" for="rememberMe">
+
+                                                Remember me
+
+                                            </label>
+
+                                        </div>
+
+
+
+                                        <!-- LOGIN BUTTON -->
+
+                                        <button type="submit" id="loginButton" class="btn btn-warning w-100 login-btn">
+
+                                            <i class="bi bi-box-arrow-in-right me-2">
+                                            </i>
+
+                                            Login to RideOn
+
+                                        </button>
+
+
+                                    </form>
+
+
+
+                                    <!-- =================================================
+                                            DIVIDER
+                                    ================================================= -->
+
+                                    <div class="divider my-4">
+
+                                        <span>OR</span>
+
+                                    </div>
+
+
+
+                                    <!-- =================================================
+                                            GOOGLE BUTTON
+                                    ================================================= -->
+
+                                    <button type="button" class="btn btn-outline-dark w-100 social-btn"
+                                        onclick="googleLogin()">
+
+                                        <i class="bi bi-google me-2"></i>
+
+                                        Continue with Google
+
+                                    </button>
+
+
+
+                                    <!-- =================================================
+                                            SIGN UP
+                                    ================================================= -->
+
+                                    <p class="text-center text-secondary mt-4 mb-0">
+
+                                        Don't have an account?
+
+                                        <a href="signup.html" class="fw-bold text-dark">
+
+                                            Create Account
+
+                                        </a>
+
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+                            JAVASCRIPT
+    ========================================================= -->
+
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- Supabase -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <!-- Your working Supabase connection -->
+
+    <script src="js/supabase.js"></script>
+
+
+    <!-- =========================================================
+                            LOGIN FUNCTIONS
+    ========================================================= -->
+
+    <script>
+
+
+        /* =====================================================
+                        PASSWORD SHOW / HIDE
+        ===================================================== */
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("loginPassword");
+
+            const icon =
+                document.getElementById("passwordIcon");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                icon.classList.remove("bi-eye");
+
+                icon.classList.add("bi-eye-slash");
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                icon.classList.remove("bi-eye-slash");
+
+                icon.classList.add("bi-eye");
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+                        SHOW MESSAGE
+        ===================================================== */
+
+        function showLoginMessage(message, type) {
+
+            const loginMessage =
+                document.getElementById("loginMessage");
+
+
+            loginMessage.className =
+                "alert alert-" + type;
+
+            loginMessage.innerText =
+                message;
+
+            loginMessage.style.display =
+                "block";
+
+        }
+
+
+
+        /* =====================================================
+                        SUPABASE LOGIN
+        ===================================================== */
+
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", async function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document
+                        .getElementById("loginEmail")
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById("loginPassword")
+                        .value;
+
+
+                const loginButton =
+                    document.getElementById("loginButton");
+
+
+                const rememberMe =
+                    document.getElementById("rememberMe").checked;
+
+
+                /* Clear old message */
+
+                document
+                    .getElementById("loginMessage")
+                    .style.display = "none";
+
+
+                /* Validation */
+
+                if (email === "") {
+
+                    showLoginMessage(
+                        "Please enter your email address.",
+                        "danger"
+                    );
+
+                    return;
+
+                }
+
+
+                if (password === "") {
+
+                    showLoginMessage(
+                        "Please enter your password.",
+                        "danger"
+                    );
+
+                    return;
+
+                }
+
+
+                try {
+
+
+                    /* Disable button */
+
+                    loginButton.disabled = true;
+
+                    loginButton.innerHTML =
+                        '<span class="spinner-border spinner-border-sm me-2"></span>Logging in...';
+
+
+
+                    /* =================================================
+                            SUPABASE AUTH LOGIN
+                    ================================================= */
+
+                    const { data, error } =
+                        await supabaseClient.auth.signInWithPassword({
+
+                            email: email,
+
+                            password: password
+
+                        });
+
+
+                    /* Check error */
+
+                    if (error) {
+
+                        throw error;
+
+                    }
+
+
+                    console.log(
+                        "RideOn login successful:",
+                        data
+                    );
+
+
+                    /* Success message */
+
+                    showLoginMessage(
+                        "Login successful! Welcome back to RideOn.",
+                        "success"
+                    );
+
+
+                    /* Redirect */
+
+                    setTimeout(function () {
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 1000);
+
+
+                }
+
+                catch (error) {
+
+
+                    console.error(
+                        "RideOn login error:",
+                        error
+                    );
+
+
+                    let message =
+                        error.message ||
+                        "Login failed. Please try again.";
+
+
+                    /* Better messages */
+
+                    if (
+                        message
+                            .toLowerCase()
+                            .includes("invalid login credentials")
+                    ) {
+
+                        message =
+                            "Invalid email or password.";
+
+                    }
+
+
+                    showLoginMessage(
+                        message,
+                        "danger"
+                    );
+
+
+                    /* Enable button */
+
+                    loginButton.disabled =
+                        false;
+
+
+                    loginButton.innerHTML =
+                        '<i class="bi bi-box-arrow-in-right me-2"></i>Login to RideOn';
+
+                }
+
+            });
+
+
+
+        /* =====================================================
+                        FORGOT PASSWORD
+        ===================================================== */
+
+        async function forgotPassword(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
+
+
+            if (email === "") {
+
+                showLoginMessage(
+                    "Please enter your email address first.",
+                    "warning"
+                );
+
+
+                document
+                    .getElementById("loginEmail")
+                    .focus();
+
+
+                return;
+
+            }
+
+
+            try {
+
+
+                const { error } =
+                    await supabaseClient.auth
+                        .resetPasswordForEmail(
+
+                            email,
+
+                            {
+                                redirectTo:
+                                    window.location.origin +
+                                    "/login.html"
+                            }
+
+                        );
+
+
+                if (error) {
+
+                    throw error;
+
+                }
+
+
+                showLoginMessage(
+                    "Password reset link has been sent to " + email,
+                    "success"
+                );
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Password reset error:",
+                    error
+                );
+
+
+                showLoginMessage(
+                    "Unable to send password reset email. " +
+                    error.message,
+                    "danger"
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+                        GOOGLE LOGIN
+        ===================================================== */
+
+        async function googleLogin() {
+
+            try {
+
+
+                const { data, error } =
+                    await supabaseClient.auth
+                        .signInWithOAuth({
+
+                            provider: "google",
+
+                            options: {
+
+                                redirectTo:
+                                    window.location.origin +
+                                    "/index.html"
+
+                            }
+
+                        });
+
+
+                if (error) {
+
+                    throw error;
+
+                }
+
+
+                console.log(
+                    "Google login started:",
+                    data
+                );
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Google login error:",
+                    error
+                );
+
+
+                showLoginMessage(
+                    "Google login failed. " +
+                    error.message,
+                    "danger"
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+                    CHECK EXISTING SESSION
+        ===================================================== */
+
+        async function checkExistingSession() {
+
+            try {
+
+                const { data, error } =
+                    await supabaseClient.auth
+                        .getSession();
+
+
+                if (error) {
+
+                    console.error(
+                        "Session check error:",
+                        error
+                    );
+
+                    return;
+
+                }
+
+
+                if (data.session) {
+
+                    console.log(
+                        "User already logged in:",
+                        data.session.user.email
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Session error:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        checkExistingSession();
+
+
+    </script>
+
+
+</body>
+
+</html>

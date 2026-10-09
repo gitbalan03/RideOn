@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideOn - Rent. Ride. Repeat.</title>
+    <link rel="icon" type="image/png" href="images/rideon-logo1.png">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-warning border-bottom sticky-top">
+    
+        <div class="container px-3 px-lg-5">
+    
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/rideon-logo1.png" alt="RideOn Logo" width="140" class="bg-white rounded-3 p-2">
+            </a>
+    
+    
+            <!-- MOBILE BUTTON -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#rideOnNavbar"
+                aria-controls="rideOnNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+    
+            <!-- NAVIGATION -->
+            <div class="collapse navbar-collapse justify-content-end" id="rideOnNavbar">
+    
+                <ul class="navbar-nav align-items-lg-center gap-lg-2 fw-semibold">
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill active" href="index.html#home">
+                            Home
+                        </a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#vehicles">
+                            Vehicles
+                        </a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#why-us">
+                            Why RideOn
+                        </a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#how-it-works">
+                            How It Works
+                        </a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#about">
+                            About Us
+                        </a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link px-3 py-2 rounded-pill" href="index.html#contact">
+                            Contact
+                        </a>
+                    </li>
+    
+    
+                    <!-- LOGIN -->
+                    <li class="nav-item ms-lg-2">
+    
+                        <a href="login.html" class="btn btn-outline-dark rounded-pill fw-bold px-4">
+                            Login
+                        </a>
+    
+                    </li>
+    
+    
+                    <!-- SIGN UP -->
+                    <li class="nav-item">
+    
+                        <a href="signup.html" class="btn btn-dark rounded-pill fw-bold px-4">
+                            Sign Up
+                        </a>
+    
+                    </li>
+    
+    
+                    
+    
+                </ul>
+    
+            </div>
+    
+        </div>
+    
+    </nav>
+    <!--   SECTION 1    HERO-->
+    <section id="home" class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- LEFT -->
+                <div class="col-lg-6">
+                    <div class="mb-3"><span class="badge bg-dark text-warning px-3 py-2 rounded-pill"> <i
+                                class="bi bi-lightning-charge-fill"></i>Easy Vehicle Rental</span></div>
+                    <h1 class="display-4 fw-bold">Your Ride,<br><span class="text-warning"> Your Way.</span></h1>
+                    <p class="fs-5 text-secondary my-4">
+                        Rent bikes, scooters and cars whenever
+                        you need them. Simple booking, affordable
+                        prices and reliable vehicles with RideOn.
+                    </p>
+                    <!-- BOOKING FORM -->
+                    <div id="booking" class="bg-white shadow-sm rounded-4 p-4">
+                        <h4 class="fw-bold mb-3">Find Your Ride</h4>
+                        <!-- VEHICLE TYPE -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold"> Vehicle Type</label>
+                            <select id="vehicleType" class="form-select form-select-lg">
+                                <option value="Bike"> Bike</option>
+                                <option value="Scooter">Scooter</option>
+                                <option value="Electric Bike"> Electric Bike</option>
+                                <option value="Car"> Car</option>
+                            </select>
+                        </div>
+                        <div class="row g-2">
+                            <!-- LOCATION -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Pickup Location</label>
+                                <input id="pickup" type="text" class="form-control form-control-lg"
+                                    placeholder="Enter location">
+                            </div>
+                            <!-- DATE -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Pickup Date</label>
+                                <input id="pickupDate" type="date" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-warning btn-lg w-100 fw-bold mt-4"
+                            onclick="searchRide()"><i class="bi bi-search"></i>Search Vehicles</button>
+                    </div>
+                </div>
+                <!-- RIGHT HERO IMAGE -->
+                <div class="col-lg-6 text-center">
+                    <img src="images/rideon-hero.png" alt="RideOn Bike and Car Rental" class="img-fluid rounded-1">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                       SECTION 2
+                  POPULAR VEHICLES
+========================================================= -->
+    <section class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="mb-5">
+                <h2 class="fw-bold display-6 d-inline-block border-bottom border-warning border-4 pb-2">
+                    Popular Rides
+                </h2>
+                <p class="text-secondary mt-3">
+                    Our most popular vehicles, ready when you are.
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- SPORT BIKE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="images/rideon-scooter.png" class="card-img-top" alt="RideOn Sports Bike">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="fw-bold">RideOn Sports Bike</h5>
+                                <span class="badge bg-warning text-dark"> Popular </span>
+                            </div>
+                            <p class="text-secondary"><i class="bi bi-speedometer2"></i>Petrol&nbsp; <i
+                                    class="bi bi-people"></i>2 Seats </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="fw-bold fs-5"> ₹299 </span>
+                                    <small class="text-secondary">/day</small>
+                                </div>
+                                <button class="btn btn-dark rounded-pill"
+                                    onclick="bookVehicle('RideOn Sports Bike')">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ELECTRIC SCOOTER -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="images/rideon-electric-bike.png" class="card-img-top" alt="RideOn Electric Scooter">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="fw-bold"> RideOn Scooter</h5>
+                                <span class="badge bg-success"> Available</span>
+                            </div>
+                            <p class="text-secondary"><i class="bi bi-battery-full"></i> Electric &nbsp; <i
+                                    class="bi bi-people"></i> 2 Seats</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="fw-bold fs-5"> ₹599 </span>
+                                    <small class="text-secondary"> /day </small>
+                                </div>
+                                <button class="btn btn-dark rounded-pill" onclick="bookVehicle('RideOn Scooter')"> Book
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CAR -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="images/rideon-sedan.png" class="card-img-top" alt="RideOn Car">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="fw-bold"> RideOn Compact </h5>
+                                <span class="badge bg-warning text-dark"> Best Value </span>
+                            </div>
+                            <p class="text-secondary"> <i class="bi bi-fuel-pump"></i> Petrol &nbsp; <i
+                                    class="bi bi-people"></i>5 Seats </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="fw-bold fs-5"> ₹1,299</span>
+                                    <small class="text-secondary"> /day</small>
+                                </div>
+                                <button class="btn btn-dark rounded-pill" onclick="bookVehicle('RideOn Compact')"> Book
+                                    Now </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                       SECTION 3
+                    VEHICLE TYPES
+========================================================= -->
+    <section id="vehicles" class="py-5">
+        <div class="container">
+            <!-- HEADING -->
+            <div class="mb-5">
+                <h2 class="fw-bold display-6 d-inline-block border-bottom border-warning border-4 pb-2">Explore Our
+                    Vehicles </h2>
+                <p class="text-secondary mt-3"> Choose the perfect ride for your journey.</p>
+            </div>
+            <div class="row g-4">
+                <!-- BIKE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-bike.png" class="card-img-top rounded-4" alt="RideOn Bike">
+                        <div class="card-body">
+                            <h4 class="fw-bold">Bikes</h4>
+                            <p class="text-secondary">
+                                Fast and affordable bikes for
+                                everyday travel Easy .
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- BIKE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-electric-bike.png" class="card-img-top rounded-4" alt="RideOn Bike">
+                        <div class="card-body">
+                            <h4 class="fw-bold"> Electric Bikes</h4>
+                            <p class="text-secondary">
+                                Fast and affordable bikes for
+                                everyday travel Easy .
+                            </p>
+
+                        </div>
+                    </div>
+                </div><!-- BIKE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-sedan.png" class="card-img-top rounded-4" alt="RideOn Bike">
+                        <div class="card-body">
+                            <h4 class="fw-bold">car</h4>
+                            <p class="text-secondary">
+                                Fast and affordable bikes for
+                                everyday travel Easy .
+                            </p>
+
+                        </div>
+                    </div>
+                </div><!-- BIKE -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-suv.png" class="card-img-top rounded-4" alt="RideOn Bike">
+                        <div class="card-body">
+                            <h4 class="fw-bold">cars</h4>
+                            <p class="text-secondary">
+                                Fast and affordable bikes for
+                                everyday travel Easy .
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- SCOOTER -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-scooter.png" class="card-img-top rounded-4" alt="RideOn Scooter">
+                        <div class="card-body">
+                            <h4 class="fw-bold">
+                                Scooters
+                            </h4>
+                            <p class="text-secondary">
+                                Comfortable scooters for city
+                                rides and short trips.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAR -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 bg-light rounded-4 h-100 shadow-sm">
+                        <img src="images/rideon-car.png" class="card-img-top rounded-4" alt="RideOn Car">
+                        <div class="card-body">
+                            <h4 class="fw-bold"> Cars </h4>
+                            <p class="text-secondary">
+                                Comfortable cars for family,
+                                business and long trips.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+                       SECTION 4
+                    WHY RIDEON
+========================================================= -->
+    <section id="why-us" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="container">
+                    <h2 class="fw-bold display-6">
+                        Why Choose
+                        <span class="text-warning">
+                            RideOn?
+                        </span>
+                    </h2>
+                    <div class="border-bottom border-warning border-4 w-25 mb-4"></div>
+                    <p class="text-secondary fs-5">
+                        We make vehicle rental simple, affordable
+                        and convenient for everyone.
+                    </p>
+                    <div class="row g-4">
+                        <!-- EASY -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm rounded-4 h-100">
+                                <img src="images/rideon-easy-booking.png" class="card-img-top rounded-4"
+                                    alt="Easy Booking">
+                                <div class="d-flex align-items-center gap-3 py-3">
+                                    <div class="bg-warning rounded-circle p-3">
+                                        <i class="bi bi-phone fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">
+                                            Easy Booking
+                                        </h5>
+                                        <p class="text-secondary mb-0">
+                                            Book your vehicle in just a
+                                            few simple steps.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- AFFORDABLE -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm rounded-4 h-100">
+                                <img src="images/rideon-affordable.png" class="card-img-top rounded-4"
+                                    alt="Affordable Pricing">
+                                <div class="d-flex align-items-center gap-3 py-3">
+                                    <div class="bg-warning rounded-circle p-3">
+                                        <i class="bi bi-wallet2 fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">
+                                            Affordable Pricing
+                                        </h5>
+                                        <p class="text-secondary mb-0">
+                                            Transparent prices with no
+                                            unnecessary hidden charges.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SAFE -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm rounded-4 h-100">
+                                <img src="images/rideon-safe.png" class="card-img-top rounded-4"
+                                    alt="Safe and Reliable">
+                                <div class="d-flex align-items-center gap-3 py-3">
+                                    <div class="bg-warning rounded-circle p-3">
+                                        <i class="bi bi-shield-check fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">
+                                            Safe & Reliable
+                                        </h5>
+                                        <p class="text-secondary mb-0">
+                                            Well-maintained vehicles and
+                                            a trusted rental experience.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </section>
+    <!-- =========================================================
+                       SECTION 5
+                   HOW IT WORKS
+========================================================= -->
+    <section id="how-it-works" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-6 d-inline-block border-bottom border-warning border-4 pb-2">
+                    How It Works
+                </h2>
+                <p class="text-secondary mt-3">
+                    Renting your perfect ride is simple.
+                </p>
+            </div>
+            <div class="row align-items-center g-5">
+                <!-- IMAGE -->
+                <div class="col-lg-6">
+                    <img src="images/rideon-how-it-works.png" alt="How RideOn Works" class="img-fluid rounded-4">
+                </div>
+                <!-- STEPS -->
+                <div class="col-lg-6">
+                    <!-- STEP 1 -->
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="bg-warning rounded-circle
+                               d-flex align-items-center
+                               justify-content-center
+                               flex-shrink-0" style="width:50px;height:50px;">
+                            <strong>1</strong>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">
+                                Choose Your Vehicle
+                            </h4>
+                            <p class="text-secondary">
+                                Select a bike, scooter or car
+                                that suits your journey.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP 2 -->
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="bg-warning rounded-circle
+                               d-flex align-items-center
+                               justify-content-center
+                               flex-shrink-0" style="width:50px;height:50px;">
+                            <strong>2</strong>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">
+                                Select Date & Time
+                            </h4>
+                            <p class="text-secondary">
+                                Choose when and where you want
+                                to pick up your vehicle.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP 3 -->
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="bg-warning rounded-circle
+                               d-flex align-items-center
+                               justify-content-center
+                               flex-shrink-0" style="width:50px;height:50px;">
+                            <strong>3</strong>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">
+                                Confirm & Pay
+                            </h4>
+                            <p class="text-secondary">
+                                Confirm your booking and complete
+                                the payment securely.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP 4 -->
+                    <div class="d-flex gap-3">
+                        <div class="bg-warning rounded-circle
+                               d-flex align-items-center
+                               justify-content-center
+                               flex-shrink-0" style="width:50px;height:50px;">
+                            <strong>4</strong>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">
+                                Pick Up & Ride
+                            </h4>
+                            <p class="text-secondary">
+                                Pick up your RideOn vehicle and
+                                enjoy your journey.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--     SECTION 6
+                 
+ ABOUT RIDEON SECTION-->
+    <section id="about" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- IMAGE -->
+                <div class="col-lg-6">
+                    <img src="images/rideon-users.png" alt="People using RideOn" class="img-fluid rounded-4 shadow">
+                </div>
+                <!-- CONTENT -->
+                <div class="col-lg-6">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3">
+                        About RideOn
+                    </span>
+                    <h2 class="display-5 fw-bold">
+                        Your Journey,
+                        <span class="text-warning">
+                            Our Ride
+                        </span>
+                    </h2>
+                    <!-- YELLOW UNDERLINE -->
+                    <div class="border-bottom border-warning border-4 w-25 mb-4"></div>
+                    <p class="lead text-secondary">
+                        RideOn is a modern vehicle rental platform
+                        that makes it easy to rent bikes, scooters
+                        and cars for your everyday journeys.
+                    </p>
+                    <p class="text-secondary">
+                        Whether you need a bike for your daily commute,
+                        a scooter for a quick city trip, or a car for
+                        a family journey, RideOn gives you convenient
+                        and flexible rental options in one place.
+                    </p>
+                    <!-- FEATURES -->
+                    <div class="row g-3 mt-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-warning rounded-circle
+                                        d-flex align-items-center
+                                        justify-content-center
+                                        flex-shrink-0" style="width:45px;height:45px;">
+                                    <i class="bi bi-bicycle fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">
+                                        Bikes & Scooters
+                                    </h6>
+                                    <small class="text-secondary">
+                                        Easy city rides
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-warning rounded-circle
+                                        d-flex align-items-center
+                                        justify-content-center
+                                        flex-shrink-0" style="width:45px;height:45px;">
+                                    <i class="bi bi-car-front fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">
+                                        Cars
+                                    </h6>
+                                    <small class="text-secondary">
+                                        Comfortable journeys
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-warning rounded-circle
+                                        d-flex align-items-center
+                                        justify-content-center
+                                        flex-shrink-0" style="width:45px;height:45px;">
+                                    <i class="bi bi-currency-rupee fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">
+                                        Affordable
+                                    </h6>
+                                    <small class="text-secondary">
+                                        Transparent pricing
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-warning rounded-circle
+                                        d-flex align-items-center
+                                        justify-content-center
+                                        flex-shrink-0" style="width:45px;height:45px;">
+                                    <i class="bi bi-shield-check fs-5"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0">
+                                        Safe & Reliable
+                                    </h6>
+                                    <small class="text-secondary">
+                                        Trusted vehicles
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BUTTON -->
+                    <a href="#vehicles" class="btn btn-warning btn-lg rounded-pill
+                           fw-bold px-4 mt-4">
+                        Explore Our Vehicles
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                       SECTION 7
+                    PEOPLE / BRAND
+========================================================= -->
+    <section class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold">
+                        Move Freely.
+                        <br>
+                        <span class="text-warning">
+                            RideOn.
+                        </span>
+                    </h2>
+                    <div class="border-bottom border-warning border-4 w-25 my-4"></div>
+                    <p class="fs-5">
+                        Whether you're travelling to work,
+                        exploring your city or planning a weekend
+                        trip, RideOn gives you the freedom to
+                        choose your own ride.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap mt-4">
+                        <a href="#booking" class="btn btn-warning btn-lg rounded-pill fw-bold px-4">
+                            Start Riding
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <a href="#vehicles" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                            Explore Vehicles
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/rideon-user.png" alt="People using RideOn" class="img-fluid rounded-4">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                       SECTION 8
+                    RIDEON APP
+========================================================= -->
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- APP IMAGE -->
+                <div class="col-lg-6 text-center">
+                    <img src="images/rideon-app.png" alt="RideOn Mobile App" class="img-fluid">
+                </div>
+                <!-- APP CONTENT -->
+                <div class="col-lg-6">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
+                        Coming Soon
+                    </span>
+                    <h2 class="display-5 fw-bold mt-3">
+                        RideOn in Your
+                        <span class="text-warning">
+                            Pocket
+                        </span>
+                    </h2>
+                    <p class="text-secondary fs-5 my-4">
+                        Discover vehicles, check availability,
+                        manage your bookings and enjoy a simple
+                        rental experience from your phone.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 shadow-sm">
+                                <i class="bi bi-search fs-3 text-warning"></i>
+                                <h6 class="fw-bold mt-2">
+                                    Find Vehicles
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 shadow-sm">
+                                <i class="bi bi-calendar-check fs-3 text-warning"></i>
+                                <h6 class="fw-bold mt-2">
+                                    Easy Booking
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 shadow-sm">
+                                <i class="bi bi-credit-card fs-3 text-warning"></i>
+                                <h6 class="fw-bold mt-2">
+                                    Secure Payment
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 shadow-sm">
+                                <i class="bi bi-clock-history fs-3 text-warning"></i>
+                                <h6 class="fw-bold mt-2">
+                                    Manage Trips
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-dark btn-lg rounded-pill px-4" onclick="showAppMessage()">
+                        <i class="bi bi-phone"></i>
+                        Get RideOn App
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                       FINAL CTA
+========================================================= -->
+    <section class="py-3 bg-warning">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold">
+                        Ready to Ride?
+                    </h2>
+                    <p class="fs-5 mb-0">
+                        Choose your vehicle and start your journey
+                        with RideOn today.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#booking" class="btn btn-dark btn-lg rounded-pill fw-bold px-5">
+                        Book Your Ride
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================================================
+                         FOOTER
+========================================================= -->
+    <footer class="bg-black text-white pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- BRAND -->
+                <div class="col-md-4">
+                    <img src="images/rideon-logo.png" alt="RideOn Logo" width="150" class="bg-white rounded p-2">
+                    <p class="text-secondary mt-3">
+                        Rent. Ride. Repeat.
+                        <br>
+                        Your trusted platform for bike,
+                        scooter and car rentals.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white fs-5">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- QUICK LINKS -->
+                <div class="col-6 col-md-2">
+                    <h5 class="fw-bold mb-3">
+                        Quick Links
+                    </h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#home" class="text-white text-decoration-none">
+                            Home
+                        </a>
+                        <a href="#vehicles" class="text-white text-decoration-none">
+                            Vehicles
+                        </a>
+                        <a href="#why-us" class="text-white text-decoration-none">
+                            Why RideOn
+                        </a>
+                        <a href="#how-it-works" class="text-white text-decoration-none">
+                            How It Works
+                        </a>
+                        <a href="#about" class="text-white text-decoration-none">
+                            About Us
+                        </a>
+                    </div>
+                </div>
+                <!-- VEHICLES -->
+                <div class="col-6 col-md-2">
+                    <h5 class="fw-bold mb-3">
+                        Vehicles
+                    </h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#vehicles" class="text-white text-decoration-none">
+                            Bikes
+                        </a>
+                        <a href="#vehicles" class="text-white text-decoration-none">
+                            Scooters
+                        </a>
+                        <a href="#vehicles" class="text-white text-decoration-none">
+                            Electric Bikes
+                        </a>
+                        <a href="#vehicles" class="text-white text-decoration-none">
+                            Cars
+                        </a>
+                    </div>
+                </div>
+                <!-- SUPPORT -->
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">
+                        Contact & Support
+                    </h5>
+                    <p class="text-secondary">
+                        <i class="bi bi-envelope text-warning"></i>
+                        support@rideon.com
+                    </p>
+
+                    <p class="text-secondary">
+                        <i class="bi bi-geo-alt text-warning"></i>
+                        Chennai, Tamil Nadu, India
+                    </p>
+                    <a href="#booking" class="btn btn-warning rounded-pill fw-bold">
+                        Book a Vehicle
+                    </a>
+                </div>
+            </div>
+            <!-- COPYRIGHT -->
+            <div class="border-top border-secondary text-center py-3 mt-5">
+                <small class="text-secondary">
+                    © 2026 RideOn. All rights reserved.
+                </small>
+            </div>
+        </div>
+    </footer>
+    <!-- =========================================================
+                   BOOKING MODAL
+========================================================= -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <span class="text-warning">
+                            RideOn
+                        </span>
+                        Booking
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-check-circle-fill text-success display-4"></i>
+                        <h4 id="selectedVehicle" class="fw-bold mt-3">
+                            Vehicle Selected
+                        </h4>
+                        <p class="text-secondary">
+                            Complete the details below.
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Your Name
+                        </label>
+                        <input type="text" id="customerName" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Phone Number
+                        </label>
+                        <input type="tel" id="customerPhone" class="form-control" placeholder="Enter phone number">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Rental Duration
+                        </label>
+                        <select id="duration" class="form-select">
+                            <option value="1">
+                                1 Day
+                            </option>
+                            <option value="2">
+                                2 Days
+                            </option>
+                            <option value="3">
+                                3 Days
+                            </option>
+                            <option value="7">
+                                1 Week
+                            </option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-warning w-100 fw-bold" onclick="confirmBooking()">
+                        Confirm Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========================================================
+                    JAVASCRIPT
+========================================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* =========================================================
+                            SELECT VEHICLE
+        ========================================================= */
+        function selectVehicle(vehicle) {
+            document.getElementById("vehicleType").value = vehicle;
+            document.getElementById("booking").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+        /* =========================================================
+                             SEARCH VEHICLES
+        ========================================================= */
+        function searchRide() {
+            let vehicle =
+                document.getElementById("vehicleType").value;
+            let pickup =
+                document.getElementById("pickup").value;
+            let date =
+                document.getElementById("pickupDate").value;
+            if (pickup.trim() === "") {
+                alert("Please enter your pickup location.");
+                document.getElementById("pickup").focus();
+                return;
+            }
+            if (date === "") {
+                alert("Please select your pickup date.");
+                document.getElementById("pickupDate").focus();
+                return;
+            }
+            alert(
+                "RideOn found available " +
+                vehicle +
+                " vehicles near " +
+                pickup +
+                "!"
+            );
+            document.getElementById("vehicles").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+        /* =========================================================
+                             BOOK VEHICLE
+        ========================================================= */
+        function bookVehicle(vehicle) {
+            document.getElementById("selectedVehicle").innerText =
+                vehicle;
+            let modal =
+                new bootstrap.Modal(
+                    document.getElementById("bookingModal")
+                );
+            modal.show();
+        }
+        /* =========================================================
+                           CONFIRM BOOKING
+        ========================================================= */
+        function confirmBooking() {
+            let name =
+                document.getElementById("customerName").value;
+            let phone =
+                document.getElementById("customerPhone").value;
+            let duration =
+                document.getElementById("duration").value;
+            let vehicle =
+                document.getElementById("selectedVehicle").innerText;
+            if (name.trim() === "") {
+                alert("Please enter your name.");
+                return;
+            }
+            if (phone.trim() === "") {
+                alert("Please enter your phone number.");
+                return;
+            }
+            alert(
+                "Booking request submitted successfully!\n\n" +
+                "Vehicle: " + vehicle + "\n" +
+                "Customer: " + name + "\n" +
+                "Duration: " + duration + " day(s)\n\n" +
+                "RideOn will contact you shortly."
+            );
+            let modal =
+                bootstrap.Modal.getInstance(
+                    document.getElementById("bookingModal")
+                );
+            modal.hide();
+        }
+        /* =========================================================
+                             APP MESSAGE
+        ========================================================= */
+        function showAppMessage() {
+            alert(
+                "RideOn mobile app is coming soon!\n\n" +
+                "You can currently book your vehicle through our website."
+            );
+        }
+        /* =========================================================
+                         SET MINIMUM DATE
+        ========================================================= */
+        let today =
+            new Date().toISOString().split("T")[0];
+        document.getElementById("pickupDate").min =
+            today;
+    </script>
+    <script>
+        const navLinks = document.querySelectorAll(
+            '.navbar .nav-link'
+        );
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function () {
+                // Remove dark background from all links
+                navLinks.forEach(item => {
+                    item.classList.remove('bg-dark');
+                    item.classList.remove('text-white');
+                });
+                // Add Bootstrap dark background
+                this.classList.add('bg-dark');
+                this.classList.add('text-white');
+            });
+        });
+        /* Remove hover background when mouse leaves navbar */
+        document.querySelector('.navbar').addEventListener(
+            'mouseleave',
+            function () {
+                navLinks.forEach(item => {
+                    item.classList.remove('bg-dark');
+                    item.classList.remove('text-white');
+                });
+            }
+        );
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
