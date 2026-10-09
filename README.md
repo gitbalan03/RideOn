@@ -82,34 +82,7 @@ RideOn/
 
 *Adjust the filenames and folders to match your actual project structure.*
 
-## 🚀 Getting Started
 
-### 1. Clone the Repository
-
-```bash
-git clone YOUR_REPOSITORY_URL
-```
-
-### 2. Open the Project
-
-```bash
-cd RideOn
-```
-
-### 3. Configure Supabase
-
-* Create a Supabase project.
-* Configure the required database tables and authentication settings.
-* Add the appropriate project URL and publishable/anonymous key to your frontend configuration.
-* Enable suitable Row Level Security (RLS) policies to protect user data.
-
-**Security note:** Never expose your Supabase service-role key or other secret credentials in frontend code.
-
-### 4. Run the Website
-
-Open `index.html` in your browser or use the Live Server extension in Visual Studio Code.
-
-If your application uses multiple pages, confirm that all navigation links and file paths work correctly.
 
 ## 🎯 Project Objective
 
